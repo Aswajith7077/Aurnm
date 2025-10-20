@@ -1,5 +1,5 @@
 {
   "builds": [
-    { "src": "apps/webui/next.config.js", "use": "@vercel/next" }
+    { "src": "webui/package.json", "use": "@vercel/next" }
   ]
 }
