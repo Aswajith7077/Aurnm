@@ -24,7 +24,7 @@ export default function SignInPage() {
         </p>
       </div>
 
-      <div className="flex flex-col gap-4 p-6 md:p-10 w-[45%] m-2">
+      <div className="flex flex-col gap-4 p-6 md:p-10 w-full lg:w-[45%] m-2">
         <div className="flex justify-end gap-2 md:justify-end">
           <Link href={"/sign-up"}>
             <Button className="cursor-pointer rounded-xl">Sign Up</Button>

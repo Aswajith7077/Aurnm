@@ -8,6 +8,7 @@ import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const SignUpForm = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -18,6 +19,7 @@ const SignUpForm = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter();
 
   if (!signUp) {
     return null;
@@ -40,7 +42,7 @@ const SignUpForm = () => {
 
       if (result.status === "complete") {
         await setActive({ session: result.createdSessionId });
-        window.location.href = "/";
+        router.push("/home");
       } else {
         console.log(result);
       }
@@ -61,7 +63,7 @@ const SignUpForm = () => {
       await signUp.authenticateWithRedirect({
         strategy,
         redirectUrl: "/",
-        redirectUrlComplete: "/dashboard",
+        redirectUrlComplete: "/home",
       });
     } catch (err) {
       console.error(err);
@@ -150,7 +152,10 @@ const SignUpForm = () => {
 
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
-      <Button className="cursor-pointer w-full py-6 px-4 rounded-xl text-sm font-semibold" type="submit">
+      <Button
+        className="cursor-pointer w-full py-6 px-4 rounded-xl text-sm font-semibold"
+        type="submit"
+      >
         {`Sign In to ${appname}`}
       </Button>
 

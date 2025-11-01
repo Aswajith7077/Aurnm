@@ -131,7 +131,7 @@ const data = {
   projects: [
     {
       name: "Integration Marketplace",
-      url: "#",
+      url: "/home/integrations/marketplace",
       icon: Compass,
     },
     {

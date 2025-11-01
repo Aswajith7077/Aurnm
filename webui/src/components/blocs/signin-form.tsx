@@ -30,7 +30,7 @@ const SignInForm = () => {
 
       if (result.status === "complete") {
         await setActive({ session: result.createdSessionId });
-        router.push("/dashboard"); // Redirect after login
+        router.push("/home"); // Redirect after login
       } else {
         console.log(result); // May require additional steps (MFA, etc.)
       }
@@ -112,7 +112,10 @@ const SignInForm = () => {
 
       {error && <p className="text-red-700">{error}</p>}
 
-      <Button className="cursor-pointer w-full py-6 px-5 rounded-2xl" type="submit">
+      <Button
+        className="cursor-pointer w-full py-6 px-5 rounded-2xl"
+        type="submit"
+      >
         Sign in to Shadcn Studio
       </Button>
 
@@ -130,7 +133,7 @@ const SignInForm = () => {
               signIn.authenticateWithRedirect({
                 strategy: "oauth_google",
                 redirectUrl: "/sso-callback",
-                redirectUrlComplete: "/dashboard",
+                redirectUrlComplete: "/home",
               })
             }
           >
@@ -153,7 +156,7 @@ const SignInForm = () => {
               signIn.authenticateWithRedirect({
                 strategy: "oauth_apple",
                 redirectUrl: "/sso-callback",
-                redirectUrlComplete: "/dashboard",
+                redirectUrlComplete: "/home",
               })
             }
           >
@@ -176,7 +179,7 @@ const SignInForm = () => {
               signIn.authenticateWithRedirect({
                 strategy: "oauth_facebook",
                 redirectUrl: "/sso-callback",
-                redirectUrlComplete: "/dashboard",
+                redirectUrlComplete: "/home",
               })
             }
           >

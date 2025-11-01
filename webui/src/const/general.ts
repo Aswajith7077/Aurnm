@@ -1,4 +1,4 @@
-export const appname = "Aurnm";
+export const appname = "Svrnm";
 export const logo = {
   light: "/logo/light.svg",
   dark: "/logo/dark.svg",

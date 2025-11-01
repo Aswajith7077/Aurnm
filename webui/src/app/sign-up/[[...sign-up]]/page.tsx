@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator";
 export default function SignUpPage() {
   return (
     <div className="flex flex-row h-screen">
-      <div className="flex flex-col gap-4 p-6 md:p-10 w-[45%]">
+      <div className="flex flex-col gap-4 p-6 md:p-10 w-full lg:w-[45%]">
         <div className="flex justify-end gap-2 md:justify-end">
           <Link href={"/sign-in"}>
             <Button className="cursor-pointer rounded-xl">Sign In</Button>
