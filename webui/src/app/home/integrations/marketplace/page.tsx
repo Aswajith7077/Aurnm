@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ArrowUpRight, BadgeCheck, Star, Unplug } from "lucide-react";
+import VerifiedBadge from "@/utils/VerifiedBadge";
 import Link from "next/link";
 import React from "react";
 
@@ -61,10 +62,7 @@ const IntegrationCard = ({ data, className }: IntegrationCardProps) => {
           <div className="flex flex-row gap-5">
             <h3 className="text-xl font-semibold">{data.title}</h3>
             {data.isVerified && (
-              <div className="flex flex-row gap-1 justify-center items-center">
-                <BadgeCheck className="text-blue-600" size={20} />
-                <p className="text-sm">Verified</p>
-              </div>
+              <VerifiedBadge />
             )}
           </div>
           <div className="flex flex-row gap-2">

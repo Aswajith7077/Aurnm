@@ -2,9 +2,14 @@
 import netflixTrailer from "@/../videos/neflix_trailer.mp4";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Play, X } from "lucide-react";
+import { Play, VerifiedIcon, X } from "lucide-react";
+import Image from "next/image";
 import Video from "next-video";
 import React from "react";
+import VerifiedBadge from "@/utils/VerifiedBadge";
+import { Badge } from "@/components/ui/badge";
+import { url } from "inspector";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const sample_data = {
   id: "netflix",
@@ -15,6 +20,8 @@ const sample_data = {
   isVerified: true,
   totalIntegrations: 240_000_000,
   overallRating: 4.8,
+  logoUrl: "/product/netflix/images/logo.png",
+  detailed_description: "",
   closeConnections: [
     { url: "https://github.com/shadcn.png", name: "Ram" },
     { url: "https://github.com/maxleiter.png", name: "Lakshman" },
@@ -38,7 +45,7 @@ const NetflixTrailerPlayer = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <div className="relative aspect-video w-full max-w-3xl mx-auto">
+    <div className="relative aspect-video w-full max-w-xl mx-auto">
       {/* Poster Preview */}
       <img
         src={sample_data.imageUrls[0]}
@@ -89,8 +96,54 @@ export default function IntegrationDetails({
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold">Integration Details</h1>
-      <p className="mt-2 text-gray-600">Integration ID: {params.id}</p>
-      <NetflixTrailerPlayer />
+
+      {/* Media */}
+
+      <ScrollArea className="flex flex-row w-[80vw] overflow-x-scroll">
+        <div className="flex flex-row space-x-5 my-10 w-full">
+          <NetflixTrailerPlayer />
+          {sample_data.imageUrls.map((url, idx) => {
+            return (
+              <div className="relative w-xl aspect-video shadow-2xl rounded-2xl">
+                <Image
+                  key={idx}
+                  src={url}
+                  fill
+                  alt={`${sample_data.title} screenshot ${idx + 1}`}
+                  className="bg-black rounded-2xl "
+                />
+              </div>
+            );
+          })}
+        </div>
+      </ScrollArea>
+
+      <div>
+        <div className="flex flex-row gap-5">
+          <Image
+            src={sample_data.logoUrl}
+            width={80}
+            height={80}
+            alt={`${sample_data.title} logo`}
+            className="bg-black rounded-2xl aspect-square"
+          />
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-row gap-5">
+              <h1>{sample_data.title}</h1>
+              <VerifiedBadge />
+            </div>
+            <div className="flex flex-row gap-2">
+              {sample_data.tags.map((tag, idx) => {
+                return (
+                  <Badge key={idx} className="px-4 py-1">
+                    {tag}
+                  </Badge>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
