@@ -9,7 +9,7 @@ import React from "react";
 import VerifiedBadge from "@/utils/VerifiedBadge";
 import { Badge } from "@/components/ui/badge";
 import { url } from "inspector";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const sample_data = {
   id: "netflix",
@@ -99,8 +99,8 @@ export default function IntegrationDetails({
 
       {/* Media */}
 
-      <ScrollArea className="flex flex-row w-[80vw] overflow-x-scroll">
-        <div className="flex flex-row space-x-5 my-10 w-full">
+      <ScrollArea className="flex flex-row max-w-[80vw] my-5">
+        <div className="flex flex-row space-x-5 my-5">
           <NetflixTrailerPlayer />
           {sample_data.imageUrls.map((url, idx) => {
             return (
@@ -116,6 +116,7 @@ export default function IntegrationDetails({
             );
           })}
         </div>
+        <ScrollBar orientation="horizontal" />
       </ScrollArea>
 
       <div>
@@ -144,6 +145,10 @@ export default function IntegrationDetails({
           </div>
         </div>
       </div>
+      <iframe src="https://help.netflix.com/en/node/412v" width={1600} height={1600} title="Neflix Help">
+        {" "}
+        Your Browser Does not support iframe
+      </iframe>
     </div>
   );
 }
