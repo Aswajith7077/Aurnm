@@ -1,1 +1,23 @@
-{"status":"ready","originalFilePath":"videos/neflix_trailer.mp4","provider":"mux","providerMetadata":{"mux":{"uploadId":"Q801Hgs02Y01kbP1gVEiA502qGvkCW02NhWGb01QGVep6Ku6c","assetId":"3Wdq8SWG7uICnuoxDhP5EY3UkfwMmXNR02tV36su5Xsw","playbackId":"lviMhEzbyc5JMg5ljrZtZ1TdmbZmCUA6TyBsWUOQPiI"}},"createdAt":1761483192691,"updatedAt":1761483587069,"size":3076474,"sources":[{"src":"https://stream.mux.com/lviMhEzbyc5JMg5ljrZtZ1TdmbZmCUA6TyBsWUOQPiI.m3u8","type":"application/x-mpegURL"}],"poster":"https://image.mux.com/lviMhEzbyc5JMg5ljrZtZ1TdmbZmCUA6TyBsWUOQPiI/thumbnail.webp","blurDataURL":"data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAwAgCdASoQAAkAAQAcJZwCdAYsZgf32mvcgAD+/SXW8AfJXt0H5FGBQeil+4/rFUS5aHnRG+z+xW9LkvD1xRW2k1sQgODb1kx/9nnDsPOSihIuut59lb3XjE22OwBTHIRxfy7hh0WJYtC1iqpYacNsZJYAAA=="}
+{
+  "status": "ready",
+  "originalFilePath": "videos/neflix_trailer.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "Q801Hgs02Y01kbP1gVEiA502qGvkCW02NhWGb01QGVep6Ku6c",
+      "assetId": "3Wdq8SWG7uICnuoxDhP5EY3UkfwMmXNR02tV36su5Xsw",
+      "playbackId": "lviMhEzbyc5JMg5ljrZtZ1TdmbZmCUA6TyBsWUOQPiI"
+    }
+  },
+  "createdAt": 1761483192691,
+  "updatedAt": 1761483587069,
+  "size": 3076474,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/lviMhEzbyc5JMg5ljrZtZ1TdmbZmCUA6TyBsWUOQPiI.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/lviMhEzbyc5JMg5ljrZtZ1TdmbZmCUA6TyBsWUOQPiI/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAwAgCdASoQAAkAAQAcJZwCdAYsZgf32mvcgAD+/SXW8AfJXt0H5FGBQeil+4/rFUS5aHnRG+z+xW9LkvD1xRW2k1sQgODb1kx/9nnDsPOSihIuut59lb3XjE22OwBTHIRxfy7hh0WJYtC1iqpYacNsZJYAAA=="
+}

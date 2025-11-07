@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ArrowUpRight, BadgeCheck, Star, Unplug } from "lucide-react";
+import { ArrowUpRight, Star, Unplug } from "lucide-react";
 import VerifiedBadge from "@/utils/VerifiedBadge";
 import Link from "next/link";
 import React from "react";
@@ -40,7 +40,7 @@ const convertToKMBT = (num: number) => {
     millions: num / 1_000_000,
     thousands: num / 1_000,
   };
-  
+
   if (result.trillions >= 1) return `${result.trillions}T`;
   else if (result.billions >= 1) return `${result.billions}B`;
   else if (result.millions >= 1) return `${result.millions}M`;
@@ -61,9 +61,7 @@ const IntegrationCard = ({ data, className }: IntegrationCardProps) => {
         <div className="flex flex-col gap-2">
           <div className="flex flex-row gap-5">
             <h3 className="text-xl font-semibold">{data.title}</h3>
-            {data.isVerified && (
-              <VerifiedBadge />
-            )}
+            {data.isVerified && <VerifiedBadge />}
           </div>
           <div className="flex flex-row gap-2">
             <p className="text-sm font-semibold text-gray-500">
@@ -92,7 +90,7 @@ const IntegrationCard = ({ data, className }: IntegrationCardProps) => {
           <Unplug />
           <div className="flex flex-col items-center">
             <h3 className="font-semibold text-xl">{`${convertToKMBT(
-              data.totalIntegrations
+              data.totalIntegrations,
             )}+`}</h3>
             <p className="text-sm">Integrations</p>
           </div>

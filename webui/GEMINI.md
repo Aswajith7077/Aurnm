@@ -2,9 +2,9 @@
 
 This file (`GEMINI.md`) allows you to customize your interactions with Gemini. You can use it to:
 
-*   **Define project-specific instructions:** Provide context about your project, coding conventions, and preferred libraries.
-*   **Set your preferences:** Specify your preferred tone, style, and verbosity level.
-*   **Provide examples:** Show Gemini how you want it to perform certain tasks.
+- **Define project-specific instructions:** Provide context about your project, coding conventions, and preferred libraries.
+- **Set your preferences:** Specify your preferred tone, style, and verbosity level.
+- **Provide examples:** Show Gemini how you want it to perform certain tasks.
 
 ## Example
 

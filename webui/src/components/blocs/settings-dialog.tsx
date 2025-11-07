@@ -70,7 +70,10 @@ export function SettingsDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <DropdownMenuItem className="cursor-pointer rounded-lg py-2" onSelect={(e) => e.preventDefault()}>
+        <DropdownMenuItem
+          className="cursor-pointer rounded-lg py-2"
+          onSelect={(e) => e.preventDefault()}
+        >
           <Settings2 strokeWidth={3.22} />
           Settings
           <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>

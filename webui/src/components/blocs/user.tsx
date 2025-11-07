@@ -43,9 +43,13 @@ const LogOutButton = () => {
             account and remove your data from our servers.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter >
-          <AlertDialogCancel className="rounded-lg cursor-pointer">Cancel</AlertDialogCancel>
-          <AlertDialogAction className="rounded-lg cursor-pointer">Continue</AlertDialogAction>
+        <AlertDialogFooter>
+          <AlertDialogCancel className="rounded-lg cursor-pointer">
+            Cancel
+          </AlertDialogCancel>
+          <AlertDialogAction className="rounded-lg cursor-pointer">
+            Continue
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
@@ -81,11 +85,14 @@ const UserAvatar = () => {
           <DropdownMenuItem className="bg-primary text-white dark:text-black font-semibold text-sm flex flex-row cursor-pointer justify-center w-full rounded-xl my-2 py-2">
             Edit Profile
           </DropdownMenuItem>
-          <DropdownMenuItem className="cursor-pointer rounded-lg py-2" onSelect={(e) => e.preventDefault()}>
-                    <Settings2 strokeWidth={3.22} />
-                    Settings
-                    <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-                  </DropdownMenuItem>
+          <DropdownMenuItem
+            className="cursor-pointer rounded-lg py-2"
+            onSelect={(e) => e.preventDefault()}
+          >
+            <Settings2 strokeWidth={3.22} />
+            Settings
+            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+          </DropdownMenuItem>
           <DropdownMenuItem className="cursor-pointer rounded-lg py-2 ">
             <Command strokeWidth={3.22} />
             Keyboard shortcuts

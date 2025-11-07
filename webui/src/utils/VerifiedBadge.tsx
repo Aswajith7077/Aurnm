@@ -9,5 +9,4 @@ const VerifiedBadge = () => {
   );
 };
 
-
 export default VerifiedBadge;

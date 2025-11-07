@@ -57,7 +57,7 @@ const SignUpForm = () => {
   };
 
   const handleOAuth = async (
-    strategy: "oauth_google" | "oauth_apple" | "oauth_facebook"
+    strategy: "oauth_google" | "oauth_apple" | "oauth_facebook",
   ) => {
     try {
       await signUp.authenticateWithRedirect({
