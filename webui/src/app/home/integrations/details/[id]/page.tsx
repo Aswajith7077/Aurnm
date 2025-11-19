@@ -9,6 +9,7 @@ import React from "react";
 import VerifiedBadge from "@/utils/VerifiedBadge";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { Card } from "@/components/ui/card";
 
 const sample_data = {
   netflix: {
@@ -97,6 +98,39 @@ const NetflixTrailerPlayer = ({ posterUrl }: NetflixTrailerPlayerProps) => {
   );
 };
 
+const IntegrationHeader = ({
+  data,
+}: {
+  data: (typeof sample_data)["netflix"];
+}) => {
+  return (
+    <section className="flex flex-row gap-5">
+      <Image
+        src={data.logoUrl}
+        width={80}
+        height={80}
+        alt={`${data.title} logo`}
+        className="bg-black rounded-2xl aspect-square"
+      />
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-row gap-5">
+          <h1>{data.title}</h1>
+          <VerifiedBadge />
+        </div>
+        <div className="flex flex-row gap-2">
+          {data.tags.map((tag, idx) => {
+            return (
+              <Badge key={idx} className="px-4 py-1">
+                {tag}
+              </Badge>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 type IntegrationDetialsProps = {
   params: { id: string };
 };
@@ -106,61 +140,51 @@ export default function IntegrationDetails({
 }: Promise<IntegrationDetialsProps>) {
   const { id } = React.use<IntegrationDetialsProps["params"]>(params);
   const data: (typeof sample_data)["netflix"] = sample_data[id];
+
   return (
-    <ScrollArea className="p-6">
+    <ScrollArea className=" p-5 w-[80vw]">
       <h1 className="text-2xl font-semibold">Integration Details</h1>
 
       {/* Media */}
 
-      <ScrollArea className="flex flex-row max-w-[78vm] my-5">
-        <div className="flex flex-row space-x-5 w-full my-5">
+      <ScrollArea className="w-[78vw] my-5 overflow-x-auto">
+        <div className="flex flex-row gap-5 w-max py-5">
           <NetflixTrailerPlayer posterUrl={data.imageUrls[0]} />
-          {data.imageUrls.map((url, idx) => {
-            return (
-              <div
-                className="relative w-xl aspect-video shadow-2xl rounded-2xl"
+          {data.imageUrls.map((url, idx) => (
+            <div
+              className="relative w-[500px] aspect-video shadow-2xl rounded-2xl flex-shrink-0"
+              key={idx}
+            >
+              <Image
                 key={idx}
-              >
-                <Image
-                  key={idx}
-                  src={url}
-                  fill
-                  alt={`${data.title} screenshot ${idx + 1}`}
-                  className="bg-black rounded-2xl "
-                />
-              </div>
-            );
-          })}
+                src={url}
+                fill
+                alt={`${data.title} screenshot ${idx + 1}`}
+                className="bg-black rounded-2xl object-cover"
+              />
+            </div>
+          ))}
         </div>
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
 
-      <div>
-        <div className="flex flex-row gap-5">
-          <Image
-            src={data.logoUrl}
-            width={80}
-            height={80}
-            alt={`${data.title} logo`}
-            className="bg-black rounded-2xl aspect-square"
-          />
-          <div className="flex flex-col gap-3">
-            <div className="flex flex-row gap-5">
-              <h1>{data.title}</h1>
-              <VerifiedBadge />
+      <section className="flex flex-row gap-5 w-[80vm] pr-5">
+        <section className="flex flex-col w-5/7">
+          <IntegrationHeader data={data} />
+          <div className="flex flex-col my-10 gap-10">
+            <div className="flex flex-col gap-5">
+              <h1>Description</h1>
+              <p>{data.description}</p>
             </div>
-            <div className="flex flex-row gap-2">
-              {data.tags.map((tag, idx) => {
-                return (
-                  <Badge key={idx} className="px-4 py-1">
-                    {tag}
-                  </Badge>
-                );
-              })}
-            </div>
+
+
           </div>
-        </div>
-      </div>
+        </section>
+
+        <section className="flex flex-col w-2/7">
+          <Card className="px-5">This is a sample Text</Card>
+        </section>
+      </section>
       <ScrollBar orientation="vertical" />
     </ScrollArea>
   );

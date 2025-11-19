@@ -21,6 +21,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { useUser } from "@clerk/nextjs";
+import { Button } from "../ui/button";
 
 const LogOutButton = () => {
   return (
@@ -57,16 +59,30 @@ const LogOutButton = () => {
 };
 
 const UserAvatar = () => {
+  const { isSignedIn, user } = useUser();
+  if (!isSignedIn) return null;
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Avatar className="cursor-pointer">
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-          <AvatarFallback>AS</AvatarFallback>
-        </Avatar>
+        <Button
+          variant={"outline"}
+          className="flex flex-row items-center gap-3 rounded-full cursor-pointer px-2 h-12"
+        >
+          <Avatar className="aspect-square h-7 w-7">
+            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+            <AvatarFallback>
+              {user?.firstName ? user.firstName[0] : ""}
+              {user?.lastName ? user.lastName + user?.lastName[0] : ""}
+            </AvatarFallback>
+          </Avatar>
+          <h3 className="font-semibold mr-2">
+            {user?.firstName + " " + user?.lastName}
+          </h3>
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-64 mx-5 my-3 rounded-xl p-2 font-[open-sans]"
+        className="w-64 mx-5 my-3 rounded-xl p-2"
         align="start"
       >
         <DropdownMenuGroup>
@@ -76,10 +92,10 @@ const UserAvatar = () => {
               <AvatarFallback>AS</AvatarFallback>
             </Avatar>
             <div className="flex flex-col items-center justify-center">
-              <h2 className=" text-lg font-bold font-[open-sans]">
-                Aswajith S
+              <h2 className=" text-lg font-bold">
+                {user?.firstName + " " + user?.lastName}
               </h2>
-              <h3 className="text-sm font-[open-sans]">@voicedaswa</h3>
+              <h3 className="text-sm">@voicedaswa</h3>
             </div>
           </DropdownMenuItem>
           <DropdownMenuItem className="bg-primary text-white dark:text-black font-semibold text-sm flex flex-row cursor-pointer justify-center w-full rounded-xl my-2 py-2">

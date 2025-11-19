@@ -1,0 +1,1 @@
+This file provides instructions and context to the Gemini large language model. It helps Gemini understand the project and how to best assist with development tasks. For more information, see the official documentation.
